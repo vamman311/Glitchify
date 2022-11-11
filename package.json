@@ -6,6 +6,7 @@
   "author": "Andrew <drew.311.a@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "dat.gui": "^0.7.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
