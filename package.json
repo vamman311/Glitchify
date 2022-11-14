@@ -6,7 +6,13 @@
   "author": "Andrew <drew.311.a@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mui/material": "^5.10.13",
+    "axios": "^1.1.3",
     "dat.gui": "^0.7.9",
+    "express": "^4.18.2",
+    "nodemon": "^2.0.20",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
@@ -24,6 +30,7 @@
   "scripts": {
     "start": "webpack --mode=development",
     "build": "webpack --mode=production",
-    "dev": "webpack serve --open"
+    "dev": "webpack serve --open",
+    "start-api": "nodemon --watch Glitchify server/server.js"
   }
 }
