@@ -5,9 +5,15 @@
   "author": "Andrew <drew.311.a@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@aws-sdk/abort-controller": "^3.208.0",
+    "@aws-sdk/client-s3": "^3.210.0",
+    "aws-sdk": "^2.1254.0",
     "axios": "^1.1.3",
+    "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "express-fileupload": "^1.4.0",
+    "multer": "^1.4.5-lts.1",
+    "multer-s3": "^3.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
@@ -26,6 +32,6 @@
     "start": "webpack --mode=development",
     "build": "webpack --mode=production",
     "dev": "webpack serve --open",
-    "start-api": "nodemon --watch server server/server.js"
+    "start-api": "nodemon --watch server server/s3server2.js"
   }
 }
