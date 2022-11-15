@@ -18,14 +18,15 @@ const getImages = (stateSetter) => {
 const App = () => {
 
   const [userImages, setUserImages] = useState(null)
+  const toggleRefresh = true;
 
   useEffect(()=>{
     getImages(setUserImages)
-  }, [userImages])
+  }, [userImages, toggleRefresh])
 
   return (
     <div>
-    <UploadForm />
+    <UploadForm toggleRefresh={toggleRefresh}/>
     <Gallery userImages={userImages}/>
     </div>
   )

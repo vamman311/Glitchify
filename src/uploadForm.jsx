@@ -1,6 +1,7 @@
 import React from 'react'
 
-const UploadForm = () => {
+const UploadForm = ({toggleRefresh}) => {
+
   return (
     <form
     id = 'uploadForm'
