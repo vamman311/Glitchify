@@ -1,34 +1,21 @@
 import React from 'react'
-import UploadForm from './uploadForm.jsx'
-import Gallery from './gallery.jsx'
+import UploadForm from './Gallery/UploadForm.jsx'
+import Gallery from './Gallery/Gallery.jsx'
+import Home from './Home/Home.jsx'
+import NavBar from './Home/NavBar.jsx'
 import axios from 'axios'
-
-const {useState,useEffect} = React;
-
-const getImages = (stateSetter) => {
-  axios.get('http://localhost:3001/v2/files')
-      .then((res) => {
-        stateSetter(res.data)
-      })
-      .catch((err) => {
-        console.log(err)
-      })
-}
+import {Route, Routes} from 'react-router-dom'
 
 const App = () => {
 
-  const [userImages, setUserImages] = useState(null)
-  const toggleRefresh = true;
-
-  useEffect(()=>{
-    getImages(setUserImages)
-  }, [userImages, toggleRefresh])
-
   return (
-    <div>
-    <UploadForm toggleRefresh={toggleRefresh}/>
-    <Gallery userImages={userImages}/>
-    </div>
+    <>
+    <NavBar />
+    <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/gallery" element={<Gallery />} />
+    </Routes>
+    </>
   )
 }
 

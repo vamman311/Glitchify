@@ -15,7 +15,7 @@ app.post('/upload', (req, res) => {
     console.log('files still not here')
   }
   console.log(req.files)
-  res.send('hellos')
+  res.send('File Uploaded')
 })
 
 app.listen(3001, () => {

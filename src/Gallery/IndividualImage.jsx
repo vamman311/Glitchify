@@ -1,13 +1,14 @@
 import React from 'react'
+import axios from 'axios'
 
-const {useState} = React;
+const {useState, useEffect} = React;
 
-const IndividualImage = ({url}) => {
+const IndividualImage = ({url, filekey, setUserImages, toggleRefresh, setToggleRefresh}) => {
 
   const [expanded, setExpanded] = useState(false)
 
-  const scale = () => {
-    console.log(event.target)
+
+  const expandView = () => {
 
     if (expanded === false) {
       event.target.style.width = "60%";
@@ -22,12 +23,22 @@ const IndividualImage = ({url}) => {
     setExpanded(!expanded)
   }
 
+  const deleteFile = () => {
+    axios.delete(`http://localhost:3001/v2/delete`, {params: {filename: filekey}})
+    .then((res) => {
+      setToggleRefresh(!toggleRefresh)
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+  }
+
   return (
     <div>
-    <img src={`${url}`} onClick={scale}>
+    <img src={`${url}`} onClick={expandView}>
 
     </img>
-    {expanded && <button>Phucket</button>}
+    {expanded && <button onClick={deleteFile}>Phucket</button>}
     </div>
 
   )
