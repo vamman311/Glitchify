@@ -9,12 +9,42 @@ body {
   background: #222;
   color: #fff;
 }
-.glitch {
+
+.gallery {
+  display:none;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  position: absolute;
+  text-decoration: none;
+  letter-spacing: .25pc;
+}
+
+.glitchContainer {
   position: absolute;
   top: 50%;
   left: 50%;
+}
+
+/* ::-webkit-file-upload-button {
+  border: none;
+  background: inherit;
+  color: #fff;
+  cursor: pointer;
+  display: hide;
+} */
+
+input[type='file'] {
+  display:none;
+}
+
+/* Glitch Styling */
+
+.glitch {
+  position: absolute;
   transform: translate(-50%, -50%);
   font-size: 100px;
+  cursor: pointer;
 }
 
 .glitch::before, .glitch::after {
@@ -25,14 +55,14 @@ body {
   left: 0px;
 }
 
-.glitch:hover::before {
-  animation: glitch 0.3s linear 6;
+.glitch::before {
+  animation: glitch 0.3s linear infinite;
   color: #e91e63;
   z-index: -2;
 }
 
-.glitch:hover::after {
-  animation: glitch 0.3s reverse 6;
+.glitch::after {
+  animation: glitch 0.3s reverse infinite;
   color: #2196f3;
   z-index: -1;
 }
@@ -43,20 +73,20 @@ body {
     left: 0;
   }
   20% {
-    top: -5px;
-    left: -5px;
+    top: -2px;
+    left: -2px;
   }
   40% {
-    top: 5px;
-    left: 5px;
+    top: 2px;
+    left: 2px;
   }
   60% {
-    top: -5px;
-    left: 5px;
+    top: -2px;
+    left: 2px;
   }
   80% {
-    top: 5px;
-    left: -5px;
+    top: 2px;
+    left: -2px;
   }
   100% {
     top: 0px;
