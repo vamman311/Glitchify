@@ -19,12 +19,13 @@ const Home = () => {
 
   return (
     <>
-    <LoginButton></LoginButton>
-    <LogoutButton></LogoutButton>
+    {/* <LoginButton></LoginButton>
+    <LogoutButton></LogoutButton> */}
      <Link className='gallery' to ="/gallery" ref={gallery}>Gallery</Link>
     <div className='glitchContainer'>
       <h1 className='glitch' onClick={handleLink}>Phucket</h1>
     </div>
+
     </>
   )
 }

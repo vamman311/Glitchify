@@ -14,6 +14,7 @@ const Gallery = () => {
 
     axios.get('http://localhost:3001/v2/files')
     .then((res) => {
+      console.log(res)
       setUserImages(res.data)
     })
     .catch((err) => {
@@ -22,10 +23,11 @@ const Gallery = () => {
   }, [JSON.stringify(userImages), toggleRefresh])
 
   return (
-    <div className = 'imageContainer'>
+    <>
+    <div className="uploadBarContainer">
     <UploadForm toggleRefresh={toggleRefresh} setToggleRefresh={setToggleRefresh}/>
-
-
+    </div>
+    <div className = 'imageContainer'>
       {userImages && userImages.map(function(s3file, index) {
 
         let s3url = 'https://glitchify-bucket.s3.amazonaws.com/'
@@ -38,6 +40,7 @@ const Gallery = () => {
       })}
 
     </div>
+    </>
   )
 }
 

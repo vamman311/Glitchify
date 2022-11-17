@@ -13,10 +13,12 @@ const UploadForm = ({toggleRefresh, setToggleRefresh}) => {
   const pickFile = () => {
     event.preventDefault()
     uploadFile.current.click()
+    setShow(!show)
   }
 
   const handleOnFormSubComplete = () => {
     setToggleRefresh(!toggleRefresh)
+    setShow(!show)
   }
 
 
@@ -32,8 +34,8 @@ const UploadForm = ({toggleRefresh, setToggleRefresh}) => {
     target='hidden'
     >
       <input type='file' name='file' className='chooseFile' ref={uploadFile} multiple></input>
-      <button onClick={pickFile}>Pick File</button>
-      <input type='submit' value='Upload'></input>
+      {show ? <button onClick={pickFile} className='pickFileButton'>Upload</button> :
+      <input type='submit' value='Confirm' className='uploadButton'></input>}
     </form>
     </>
 

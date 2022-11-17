@@ -1,24 +1,48 @@
-img {
-  width: 50%;
-  height: 50%;
-  overflow: hidden;
-}
-
 body {
   background: #222;
   color: #fff;
 }
 
+.uploadBarContainer{
+  position: absolute;
+  height:40px;
+  width: 100%;
+  padding-bottom: 25px;
+}
+img {
+  margin-bottom: 5px;
+  background-color:#222;
+  width: 50%;
+  height: 50%;
+  overflow: hidden;
+  padding-top:15px;
+  padding-bottom: 15px;
+}
+
+img:hover{
+  animation-name: zoom;
+  animation-duration:2s;
+  animation-fill-mode:both;
+}
+
+
 .glitchContainer {
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
+}
+
+.glitch:hover{
+  font-size: 150px;
+  transition-duration: 1s;
+  transition-timing-function: ease-in;
 }
 
 .imageContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow-y: auto;
 }
 
 .gallery {
@@ -30,7 +54,33 @@ img {
   height: auto;
 }
 
+.uploadButton {
+  background: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
 
+.pickFileButton:hover {
+  color: #02f73f;
+  font-size: 30px;
+  transition-duration: 1s;
+  transition-timing-function: ease-in;
+}
+
+.uploadButton:hover {
+  color: #02f73f;
+  font-size: 30px;
+  transition-duration: 1s;
+  transition-timing-function: ease-in;
+}
+
+.pickFileButton {
+  background: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
 
 /* ::-webkit-file-upload-button {
   border: none;
@@ -97,5 +147,13 @@ input[type='file'] {
   100% {
     top: 0px;
     left: 0px;
+  }
+}
+
+@keyframes zoom {
+
+  100% {
+    width: 60vw;
+    height: auto;
   }
 }
