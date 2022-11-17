@@ -40,8 +40,8 @@ app.delete('/v2/delete', async(req, res) => {
   const filename = req.query.filename
   const s3 = new AwsClient.AWS.S3({})
 
-  let r = s3.deleteObject({Bucket: 'glitchify-bucket', Key: filename}).promise()
-  .then(res.send("file deleted"))
+  return s3.deleteObject({Bucket: 'glitchify-bucket', Key: filename}).promise()
+  .then(setTimeout(()=>{res.sendStatus(201)}, 100))
 
 })
 
