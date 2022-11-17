@@ -63,13 +63,13 @@ input[type='file'] {
 
 .glitch::before {
   animation: glitch 0.3s linear infinite;
-  color: #e91e63;
+  color: #02f73f;
   z-index: -2;
 }
 
 .glitch::after {
   animation: glitch 0.3s reverse infinite;
-  color: #2196f3;
+  color: #cb01f9;
   z-index: -1;
 }
 

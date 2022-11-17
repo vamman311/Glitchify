@@ -17,16 +17,25 @@ app.get('/v2/files', (req, res) => {
   })
 })
 
-app.post('/v2/upload', upload.single('file'), (req, res) => {
-  console.log('post form data', req)
+app.post('/v2/upload', upload.array('file'), (req, res) => {
   try {
-    const s3 = new AwsClient.AWS.S3({})
-    const fileName = `${req.file.originalname}`
-    let uploadParams = {Key: fileName, Bucket: 'glitchify-bucket', Body: req.file.buffer}
-    s3.upload(uploadParams, (err, data) => {
-      if (err) console.log(err)
-      res.sendStatus(201)
+
+    req.files.forEach(function(element, index){
+      const s3 = new AwsClient.AWS.S3({})
+      let count = 0
+      let fileName = `${element.originalname}`
+      let uploadParams = {Key: fileName, Bucket: 'glitchify-bucket', Body: element.buffer}
+      s3.upload(uploadParams, (err, data) => {
+        count++
+        if (err) console.log(err)
+        res.end()
+        console.log('count', count)
+      })
+
     })
+
+
+
   } catch (error) {
     res.send(error)
     console.log(error)
