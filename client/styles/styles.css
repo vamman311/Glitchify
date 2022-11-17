@@ -3,13 +3,51 @@ body {
   color: #fff;
 }
 
+.expandedImage {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+.test{
+  grid-area: right;
+  position: sticky;
+  box-sizing: border-box;
+  max-height: auto;
+  max-width: 500px;
+}
+
+#root {
+  display: grid;
+  grid-template-columns: 50%, 50%;
+  grid-template-rows: 100%;
+  grid-template-areas: "left right";
+  align-items: center;
+  justify-items: center;
+  overflow: hidden;
+}
+.uploadBackground{
+  background: transparent;
+  width: 40%;
+  height: 22vh;
+  border: solid;
+  border-color: dimgray;
+  max-width: 300px;
+  opacity: 25%;
+}
+
+
+form {
+  text-align: center;
+  position: relative;
+  top: 40%;
+}
 .uploadBarContainer{
   position: absolute;
   height:40px;
   width: 100%;
   padding-bottom: 25px;
 }
-img {
+.feedImage {
   margin-bottom: 5px;
   background-color:#222;
   width: 50%;
@@ -19,7 +57,7 @@ img {
   padding-bottom: 15px;
 }
 
-img:hover{
+.feedImage:hover{
   animation-name: zoom;
   animation-duration:2s;
   animation-fill-mode:both;
@@ -42,14 +80,16 @@ img:hover{
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow-y: auto;
+  overflow: auto;
+  width: 50vw;
+  grid-area: left;
 }
 
 .gallery {
   display: none;
 }
 
-img {
+.feedImage {
   width: 40%;
   height: auto;
 }
@@ -153,7 +193,7 @@ input[type='file'] {
 @keyframes zoom {
 
   100% {
-    width: 60vw;
+    width: 30vw;
     height: auto;
   }
 }
