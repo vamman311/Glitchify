@@ -22,8 +22,10 @@ const Gallery = () => {
   }, [JSON.stringify(userImages), toggleRefresh])
 
   return (
-    <div>
-      <UploadForm />
+    <div className = 'imageContainer'>
+    <UploadForm toggleRefresh={toggleRefresh} setToggleRefresh={setToggleRefresh}/>
+
+
       {userImages && userImages.map(function(s3file, index) {
 
         let s3url = 'https://glitchify-bucket.s3.amazonaws.com/'
@@ -34,6 +36,7 @@ const Gallery = () => {
           <IndividualImage key={index} url={imageUrl} filekey={s3file.Key} setUserImages={setUserImages} toggleRefresh={toggleRefresh} setToggleRefresh={setToggleRefresh}/>
         )
       })}
+
     </div>
   )
 }

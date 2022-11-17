@@ -5,6 +5,7 @@
   "author": "Andrew <drew.311.a@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@auth0/auth0-react": "^1.12.0",
     "@aws-sdk/abort-controller": "^3.208.0",
     "@aws-sdk/client-s3": "^3.210.0",
     "aws-sdk": "^2.1254.0",
@@ -31,7 +32,7 @@
     "webpack-dev-server": "^4.11.1"
   },
   "scripts": {
-    "start": "webpack --mode=development",
+    "start": "webpack --mode=development -w",
     "build": "webpack --mode=production",
     "dev": "webpack serve --open",
     "start-api": "nodemon --watch server server/s3server2.js"

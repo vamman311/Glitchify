@@ -1,7 +1,6 @@
 img {
-  width: 10%;
-  height: 10%;
-  object-fit: cover;
+  width: 50%;
+  height: 50%;
   overflow: hidden;
 }
 
@@ -10,21 +9,28 @@ body {
   color: #fff;
 }
 
-.gallery {
-  display:none;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  position: absolute;
-  text-decoration: none;
-  letter-spacing: .25pc;
-}
-
 .glitchContainer {
   position: absolute;
   top: 50%;
   left: 50%;
 }
+
+.imageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gallery {
+  display: none;
+}
+
+img {
+  width: 40%;
+  height: auto;
+}
+
+
 
 /* ::-webkit-file-upload-button {
   border: none;

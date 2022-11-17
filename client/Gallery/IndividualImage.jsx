@@ -11,12 +11,12 @@ const IndividualImage = ({url, filekey, setUserImages, toggleRefresh, setToggleR
   const expandView = () => {
 
     if (expanded === false) {
-      event.target.style.width = "60%";
+      event.target.style.width = "70%";
       event.target.style.height = "auto";
       event.target.style.transition = "width 0.5s ease";
     }
     if (expanded === true) {
-      event.target.style.width = "10%";
+      event.target.style.width = "40%";
       event.target.style.height = "auto";
       event.target.style.transition = "width 0.5s ease";
     }
@@ -34,12 +34,12 @@ const IndividualImage = ({url, filekey, setUserImages, toggleRefresh, setToggleR
   }
 
   return (
-    <div>
+    <>
     <img src={`${url}`} onClick={expandView}>
 
     </img>
     {expanded && <button onClick={deleteFile}>Phucket</button>}
-    </div>
+    </>
 
   )
 }
