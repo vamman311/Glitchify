@@ -5,6 +5,16 @@ html, body {
   color: #fff;
 }
 
+.download{
+  color:#fff;
+}
+
+.imageName{
+  position: fixed;
+  left: 50%;
+  transform: translate(-40%, 20%);
+}
+
 .deleteButton{
   background: transparent;
   border: none;

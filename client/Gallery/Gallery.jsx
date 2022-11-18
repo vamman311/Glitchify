@@ -4,6 +4,8 @@ import IndividualImage from './IndividualImage.jsx'
 import UploadForm from './UploadForm.jsx'
 import { MdDelete } from "@react-icons/all-files/md/MdDelete"
 import { FaWindowClose } from "@react-icons/all-files/Fa/FaWindowClose"
+import { BiDownload } from "@react-icons/all-files/Bi/BiDownload"
+
 const {useState, useEffect} = React;
 
 
@@ -41,14 +43,33 @@ const Gallery = () => {
     setCurrentImage(null)
   }
 
+  const handleShare = () => {
+    var copyText = currentImage
+
+     // Copy the text inside the text field
+    navigator.clipboard.writeText(copyText)
+    .then(()=>{
+      alert("Copied the text: " + copyText);
+    })
+    .catch(()=>{
+      alert("Failed to copy the text at value : " + copyText)
+    })
+
+    // Alert the copied text
+
+  }
+
   return (
     <>
         {currentImage && <div className='wrapper'>
-        <div className='test'>
-        <button className ='formClose' onClick={handleCloseExpanded}><FaWindowClose /></button>
-        <button className ='deleteButton' onClick={deleteFile}><MdDelete /></button>
-        {currentImage && <img className ='expandedImage'src={`${currentImage}`}></img>}
-        </div>
+        <span class='imageName'>{fileKey}</span>
+          <div className='test'>
+            <button className ='formClose' onClick={handleCloseExpanded}><FaWindowClose /></button>
+            {currentImage && <img className ='expandedImage'src={`${currentImage}`}></img>}
+
+            <button className ='deleteButton' onClick={deleteFile}><MdDelete /></button>
+            <a className ='download' href={currentImage} download><BiDownload /></a>
+          </div>
         </div>}
 
       <div className = 'imageContainer'>
