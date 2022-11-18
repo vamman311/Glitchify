@@ -2,6 +2,8 @@ import React from 'react'
 import axios from 'axios'
 import IndividualImage from './IndividualImage.jsx'
 import UploadForm from './UploadForm.jsx'
+import { MdDelete } from "@react-icons/all-files/md/MdDelete"
+import { FaWindowClose } from "@react-icons/all-files/Fa/FaWindowClose"
 const {useState, useEffect} = React;
 
 
@@ -35,11 +37,19 @@ const Gallery = () => {
     })
   }
 
+  const handleCloseExpanded = () => {
+    setCurrentImage(null)
+  }
+
   return (
     <>
+        {currentImage && <div className='wrapper'>
         <div className='test'>
-        {currentImage && <img className ='expandedImage'src={`${currentImage}`} onClick={deleteFile}></img>}
+        <button className ='formClose' onClick={handleCloseExpanded}><FaWindowClose /></button>
+        <button className ='deleteButton' onClick={deleteFile}><MdDelete /></button>
+        {currentImage && <img className ='expandedImage'src={`${currentImage}`}></img>}
         </div>
+        </div>}
 
       <div className = 'imageContainer'>
 
