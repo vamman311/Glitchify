@@ -10,7 +10,17 @@ const {useRef} = React;
 
 const Home = () => {
   // const { loginWithRedirect } = useAuth0();
-  const { isAuthenticated, user, isLoading } = useAuth0();
+  const { isAuthenticated, user, isLoading, error } = useAuth0();
+
+
+  if (isLoading) {
+    return <div>is loading</div>
+  }
+  if (error){
+    console.log(error)
+  }
+
+  console.log(isAuthenticated)
   const { loginWithRedirect } = useAuth0();
   const gallery = useRef()
   const loginButton = useRef()

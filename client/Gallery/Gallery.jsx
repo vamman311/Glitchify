@@ -61,7 +61,7 @@ const Gallery = () => {
   return (
     <>
         {currentImage && <div className='wrapper'>
-        <span class='imageName'>{fileKey}</span>
+        <span className='imageName'>{fileKey}</span>
           <div className='test'>
             <button className ='formClose' onClick={handleCloseExpanded}><FaWindowClose /></button>
             {currentImage && <img className ='expandedImage'src={`${currentImage}`}></img>}
