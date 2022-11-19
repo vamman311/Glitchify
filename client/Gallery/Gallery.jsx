@@ -30,7 +30,6 @@ const Gallery = () => {
   const deleteFile = () => {
     axios.delete(`http://localhost:3001/v2/delete`, {params: {filename: fileKey}})
     .then((res) => {
-      console.log(res.status)
       setToggleRefresh(!toggleRefresh)
       setCurrentImage(null)
     })

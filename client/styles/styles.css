@@ -88,7 +88,7 @@ form {
 
 .feedImage:hover{
   animation-name: zoom;
-  animation-duration:2s;
+  animation-duration:1s;
   animation-fill-mode:both;
 }
 
@@ -226,7 +226,7 @@ input[type='file'] {
 @keyframes zoom {
 
   100% {
-    width: 30vw;
+    width: 60vw;
     height: auto;
   }
 }

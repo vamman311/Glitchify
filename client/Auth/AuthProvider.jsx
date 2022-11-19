@@ -16,7 +16,8 @@ const Auth0ProviderWithHistory = ({ children }) => {
     <Auth0Provider
       domain={domain}
       clientId={clientId}
-      redirectUri={window.location.origin}
+      // redirectUri={window.location.origin}
+      redirectUri={`http://localhost:3001/gallery`}
       onRedirectCallback={onRedirectCallback}
     >
       {children}
