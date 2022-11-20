@@ -36,9 +36,11 @@ const UploadForm = ({toggleRefresh, setToggleRefresh}) => {
     target='hidden'
     >
       <input type='file' name='file' className='chooseFile' ref={uploadFile} multiple></input>
-      {show ? <button onClick={pickFile} className='pickFileButton'><FaUpload /></button> :
-      <input type='submit' value='Confirm' className='uploadButton'></input>}
+      {show ? <button onClick={pickFile} className='pickFileButton'><FaUpload /><br />Upload an Image or Gif</button> :
+      <input type='submit' value='Confirm' className='uploadButton'></input>
+      }
     </form>
+
     </div>
     </>
 

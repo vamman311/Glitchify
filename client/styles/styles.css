@@ -7,6 +7,8 @@ html, body {
 
 .download{
   color:#fff;
+  margin: 5px;
+  font-size: 30px
 }
 
 .imageName{
@@ -20,6 +22,8 @@ html, body {
   border: none;
   color: #fff;
   cursor: pointer;
+  margin: 5px;
+  font-size: 30px
 }
 .formClose{
   background: transparent;
@@ -62,6 +66,7 @@ html, body {
   border-color: dimgray;
   max-width: 300px;
   opacity: 25%;
+  margin-top: 30px
 }
 
 
@@ -106,12 +111,6 @@ form {
 }
 
 .imageContainer {
-  /* display: flex;
-  flex-direction: column;
-  align-items: center;
-  overflow: auto;
-  width: 50vw;
-  grid-area: left; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -134,9 +133,23 @@ form {
   cursor: pointer;
 }
 
+.loading {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.logoutButton {
+  position: fixed;
+  z-index: 5;
+  font-size: 25px;
+  margin: 5px;
+  cursor: pointer;
+}
+
 .pickFileButton:hover {
   color: #02f73f;
-  font-size: 30px;
   transition-duration: 1s;
   transition-timing-function: ease-in;
 }
@@ -153,6 +166,7 @@ form {
   border: none;
   color: #fff;
   cursor: pointer;
+  font-size:17px;
 }
 
 /* ::-webkit-file-upload-button {

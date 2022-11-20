@@ -2,19 +2,23 @@ import React from 'react'
 import axios from 'axios'
 import IndividualImage from './IndividualImage.jsx'
 import UploadForm from './UploadForm.jsx'
-import { MdDelete } from "@react-icons/all-files/md/MdDelete"
-import { FaWindowClose } from "@react-icons/all-files/Fa/FaWindowClose"
-import { BiDownload } from "@react-icons/all-files/Bi/BiDownload"
+import ExpandedImage from './ExpandedImage.jsx'
+import LogoutButton from '../Auth/Logout.jsx'
+import { useLocation } from 'react-router-dom'
+import { useAuth0 } from '@auth0/auth0-react';
 
 const {useState, useEffect} = React;
 
 
-const Gallery = () => {
+
+const Gallery = ({state}) => {
 
   const [userImages, setUserImages] = useState(null)
   const [toggleRefresh, setToggleRefresh] = useState(true)
   const [currentImage, setCurrentImage] = useState(null)
   const [fileKey, setFileKey] = useState(null)
+  const location = useLocation();
+  const userData = location.state?.state;
 
   useEffect(()=>{
 
@@ -27,49 +31,10 @@ const Gallery = () => {
     })
   }, [JSON.stringify(userImages), toggleRefresh])
 
-  const deleteFile = () => {
-    axios.delete(`http://localhost:3001/v2/delete`, {params: {filename: fileKey}})
-    .then((res) => {
-      setToggleRefresh(!toggleRefresh)
-      setCurrentImage(null)
-    })
-    .catch((err) => {
-      console.log(err)
-    })
-  }
-
-  const handleCloseExpanded = () => {
-    setCurrentImage(null)
-  }
-
-  const handleShare = () => {
-    var copyText = currentImage
-
-     // Copy the text inside the text field
-    navigator.clipboard.writeText(copyText)
-    .then(()=>{
-      alert("Copied the text: " + copyText);
-    })
-    .catch(()=>{
-      alert("Failed to copy the text at value : " + copyText)
-    })
-
-    // Alert the copied text
-
-  }
-
   return (
     <>
-        {currentImage && <div className='wrapper'>
-        <span className='imageName'>{fileKey}</span>
-          <div className='test'>
-            <button className ='formClose' onClick={handleCloseExpanded}><FaWindowClose /></button>
-            {currentImage && <img className ='expandedImage'src={`${currentImage}`}></img>}
-
-            <button className ='deleteButton' onClick={deleteFile}><MdDelete /></button>
-            <a className ='download' href={currentImage} download><BiDownload /></a>
-          </div>
-        </div>}
+      <LogoutButton></LogoutButton>
+      {currentImage && <ExpandedImage currentImage={currentImage} setCurrentImage={setCurrentImage} fileKey={fileKey} toggleRefresh={toggleRefresh} setToggleRefresh={setToggleRefresh}/>}
 
       <div className = 'imageContainer'>
 
